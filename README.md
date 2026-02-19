@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-AI-powered GitHub issue processor that uses Claude Code on Cloudflare Workers with Containers. It listens to issues from your connected repositories and creates Pull Requests to solve them.
+AI-powered coding agent that runs on Cloudflare Workers with Containers. Trigger it from a **GitHub issue** or a **Slack command**, and it uses Claude Code to analyze your codebase and create Pull Requests with a solution.
 
 ## Architecture
 

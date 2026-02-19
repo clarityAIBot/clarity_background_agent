@@ -1,6 +1,6 @@
 {
 	"name": "clarity-ai",
-	"description": "AI-powered GitHub issue processor using Claude Code on Cloudflare Workers with Containers",
+	"description": "AI-powered coding agent triggered via GitHub issues or Slack, running Claude Code on Cloudflare Workers with Containers",
 	"version": "0.0.3",
 	"license": "MIT",
 	"repository": {
