@@ -2,7 +2,7 @@
   <img src="frontend/static/clarity_logo.svg" alt="Clarity AI Logo" width="80">
 </p>
 
-# Clarity AI
+<h1 align="center">Clarity AI</h1>
 
 <p align="center">
   <img src="docs/Gemini_Generated_Image_k4caxpk4caxpk4ca.png" alt="Clarity AI - Open-Source Background Coding Agent" width="700">
