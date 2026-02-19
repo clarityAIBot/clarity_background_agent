@@ -1,0 +1,36 @@
+{
+  "name": "clarity-ai-frontend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "lint": "eslint . --ext .js,.ts,.svelte"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-cloudflare": "^7.2.4",
+    "@sveltejs/adapter-static": "^3.0.0",
+    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^4.0.0",
+    "@tailwindcss/typography": "^0.5.19",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "svelte": "^5.0.0",
+    "svelte-check": "^4.0.0",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.0.0",
+    "vite": "^6.0.0"
+  },
+  "dependencies": {
+    "@types/pako": "^2.0.4",
+    "bits-ui": "^1.0.0",
+    "clsx": "^2.1.0",
+    "lucide-svelte": "^0.469.0",
+    "marked": "^17.0.1",
+    "pako": "^2.1.0",
+    "tailwind-merge": "^2.6.0",
+    "tailwind-variants": "^0.3.0"
+  }
+}

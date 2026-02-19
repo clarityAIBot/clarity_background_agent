@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Clarity AI</title>
+    <style>
+      body { margin: 0; background: #0f172a; color: white; font-family: system-ui, sans-serif; }
+      .loading-screen { display: flex; align-items: center; justify-content: center; min-height: 100vh; flex-direction: column; }
+      .loading-spinner { width: 40px; height: 40px; border: 3px solid #1e293b; border-top-color: #f97316; border-radius: 50%; animation: spin 1s linear infinite; }
+      @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+    %sveltekit.head%
+  </head>
+  <body data-sveltekit-preload-data="hover">
+    <div style="display: contents">%sveltekit.body%</div>
+  </body>
+</html>

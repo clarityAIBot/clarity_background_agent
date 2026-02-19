@@ -1,0 +1,88 @@
+# Logs
+
+logs
+_.log
+npm-debug.log_
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Coverage directory used by tools like istanbul
+
+coverage
+\*.lcov
+
+# Dependency directories
+
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+
+.npm
+
+# Optional eslint cache
+
+.eslintcache
+
+# Yarn Integrity file
+
+.yarn-integrity
+
+# dotenv environment variable files
+
+.env
+scripts/.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# parcel-bundler cache (https://parceljs.org/)
+
+.cache
+.parcel-cache
+
+# Stores VSCode versions used for testing VSCode extensions
+
+.vscode-test
+
+# yarn v2
+
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.\*
+
+# wrangler project
+
+.dev.vars
+.wrangler/
+
+# Auto-generated types (regenerate with: npm run cf-typegen)
+worker-configuration.d.ts
+
+# Private keys
+*.pem
+*.key
+
+# Git submodules (removed)
+external_modules/
+
+# build files
+dist
+
+# SvelteKit build output
+.svelte-kit
+frontend/.svelte-kit
+frontend/build
+frontend/build
+
+# Cloudflare Workers assets
+public
+data/
+
+# Claude Code local settings
+.claude/

@@ -1,0 +1,40 @@
+{
+	"name": "clarity-ai",
+	"description": "AI-powered GitHub issue processor using Claude Code on Cloudflare Workers with Containers",
+	"version": "0.0.3",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/clarityAIBot/clarity_background_agent.git"
+	},
+	"author": "Clarity AI Contributors",
+	"scripts": {
+		"build:frontend": "cd frontend && bun install && bun run build",
+		"build:assets": "rm -rf public && cp -r frontend/build public",
+		"build": "npm run build:frontend && npm run build:assets",
+		"deploy": "npm run build && wrangler deploy",
+		"dev": "wrangler dev",
+		"start": "wrangler dev",
+		"cf-typegen": "wrangler types",
+		"db:generate": "drizzle-kit generate",
+		"db:migrate": "drizzle-kit migrate",
+		"db:push": "drizzle-kit push",
+		"db:studio": "drizzle-kit studio"
+	},
+	"devDependencies": {
+		"@types/node": "^24.0.3",
+		"@types/pg": "^8.11.6",
+		"dotenv": "^17.2.3",
+		"drizzle-kit": "^0.31.8",
+		"typescript": "^5.9.3",
+		"wrangler": "^4.56.0"
+	},
+	"dependencies": {
+		"@cloudflare/containers": "^0.0.30",
+		"@tsndr/cloudflare-worker-jwt": "^3.2.0",
+		"drizzle-orm": "^0.45.1",
+		"hono": "^4.11.1",
+		"pg": "^8.13.0",
+		"postgres": "^3.4.8"
+	}
+}

@@ -1,0 +1,67 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "clarity-code-container",
+	"account_id": "",
+	"main": "src/index.ts",
+	"compatibility_date": "2025-10-08",
+	"assets": {
+		"directory": "./public",
+		"binding": "ASSETS",
+		"not_found_handling": "single-page-application",
+		"run_worker_first": true
+	},
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"hyperdrive": [
+		{
+			"binding": "HYPERDRIVE",
+			"id": "YOUR_HYPERDRIVE_ID"
+		}
+	],
+	"observability": {
+		"enabled": true
+	},
+	"upload_source_maps": true,
+	"containers": [
+		{
+			"class_name": "MyContainer",
+			"image": "./Dockerfile",
+			"max_instances": 10,
+			"instance_type": "standard-1"
+		}
+	],
+	"durable_objects": {
+		"bindings": [
+			{
+				"class_name": "MyContainer",
+				"name": "MY_CONTAINER"
+			}
+		]
+	},
+	"queues": {
+		"producers": [
+			{
+				"binding": "ISSUE_QUEUE",
+				"queue": "issue-processing-queue"
+			}
+		],
+		"consumers": [
+			{
+				"queue": "issue-processing-queue",
+				"max_batch_size": 1,
+				"max_retries": 3,
+				"retry_delay": 15,
+				"dead_letter_queue": "issue-processing-dlq"
+			}
+		]
+	},
+	"migrations": [
+		{
+			"new_sqlite_classes": [
+				"MyContainer"
+			],
+			"tag": "v1"
+		}
+	]
+}

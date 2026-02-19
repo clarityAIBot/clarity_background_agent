@@ -1,0 +1,40 @@
+{
+  "name": "claude-code-container",
+  "type": "module",
+  "version": "1.0.16",
+  "description": "Container that runs Claude Code for GitHub issue processing",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && node dist/main.js",
+    "dev": "npm run build && node dist/main.js",
+    "watch": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.2.9",
+    "@octokit/rest": "^22.0.1",
+    "@opencode-ai/sdk": "^1.1.23",
+    "simple-git": "^3.30.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@vitest/coverage-v8": "^4.0.17",
+    "dotenv": "^17.2.3",
+    "typescript": "^5.7.0",
+    "vitest": "^4.0.17"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "keywords": [
+    "claude-code",
+    "github",
+    "automation",
+    "ai"
+  ],
+  "author": "",
+  "license": "MIT"
+}
