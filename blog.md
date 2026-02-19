@@ -130,6 +130,23 @@ The queue consumer handles deduplication at multiple levels: tracking IDs in iss
 
 For Slack, we have to beat the 3-second response timeout. The webhook handlers do the absolute minimum -- signature verification, queue dispatch, immediate 200 response -- and all heavy lifting happens in the queue consumer.
 
+## Architecture Decision Records
+
+We documented every major architectural decision as an ADR in [`docs/adr/`](https://github.com/clarityAIBot/clarity_background_agent/tree/main/docs/adr). If you're building something similar, these are worth reading:
+
+| ADR | Decision | Why it matters |
+|-----|----------|----------------|
+| [001 - Session Blob Persistence](https://github.com/clarityAIBot/clarity_background_agent/blob/main/docs/adr/001-session-blob-persistence.md) | Store gzipped JSONL transcripts in PostgreSQL, fetch via signed URLs | Enables session resumption across stateless containers without hitting HTTP body size limits |
+| [002 - Slack Mention Triggers](https://github.com/clarityAIBot/clarity_background_agent/blob/main/docs/adr/002-slack-mention-trigger.md) | Queue-first architecture for `@clarity` mentions | Beats Slack's 3-second timeout while supporting thread context, file attachments, and follow-ups |
+| [ADR-001 - Slack to GitHub Bridge](https://github.com/clarityAIBot/clarity_background_agent/blob/main/docs/adr/ADR-001-slack-to-github-actions-bridge.md) | Route Slack requests through GitHub issues | Single processing pipeline regardless of input source |
+| [ADR-002 - Autonomous Loop Patterns](https://github.com/clarityAIBot/clarity_background_agent/blob/main/docs/adr/ADR-002-ralph-patterns-autonomous-loop.md) | Let the agent run autonomously with full tool access | `bypassPermissions` mode with structured output detection for clarifications and PR creation |
+| [ADR-003 - Durable Objects to PostgreSQL](https://github.com/clarityAIBot/clarity_background_agent/blob/main/docs/adr/ADR-003-migrate-durable-objects-to-postgres-drizzle.md) | Migrate credential storage from Durable Objects to PostgreSQL with Drizzle ORM | Better querying, relational integrity, and familiar tooling over per-object SQLite |
+| [ADR-004 - OpenCode Support](https://github.com/clarityAIBot/clarity_background_agent/blob/main/docs/adr/ADR-004-add-opencode-support.md) | Add OpenCode SDK as a second agent backend | Multi-LLM support via Strategy Pattern -- OpenAI, Google, Groq, DeepSeek, Mistral, and more |
+| [ADR-005 - Google SSO & User Management](https://github.com/clarityAIBot/clarity_background_agent/blob/main/docs/adr/ADR-005-google-sso-user-management.md) | Google OAuth + IAM-style policy system | Role-based access control with `Allow/Deny` statements over `Action:Resource` pairs |
+| [ADR-006 - Multi-Agent Task System](https://github.com/clarityAIBot/clarity_background_agent/blob/main/docs/adr/ADR-006-generic-multi-agent-task-system.md) | Design for agents that can spawn sub-agents | Research tasks, parallel workstreams, and breaking large tasks into smaller PRs |
+
+These ADRs capture not just what we decided, but the alternatives we considered and why we rejected them. They're the best place to understand the "why" behind the architecture.
+
 ## What We Learned
 
 **Let the agent ask questions.** The clarification flow was one of the most impactful features. Instead of guessing and producing a mediocre PR, the agent asks 2-3 targeted questions and produces something much better. Users prefer a 5-minute delay with good output over an instant mediocre one.

@@ -1,33 +1,24 @@
+<p align="center">
+  <img src="frontend/static/clarity_logo.svg" alt="Clarity AI Logo" width="80">
+</p>
+
 # Clarity AI
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<p align="center">
+  <img src="docs/Gemini_Generated_Image_k4caxpk4caxpk4ca.png" alt="Clarity AI - Open-Source Background Coding Agent" width="700">
+</p>
+
+<p align="center">
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+</p>
 
 AI-powered coding agent that runs on Cloudflare Workers with Containers. Trigger it from a **GitHub issue** or a **Slack command**, and it uses Claude Code to analyze your codebase and create Pull Requests with a solution.
 
 ## Architecture
 
-```
-Slack / GitHub Issue
-        |
-        v
-  Cloudflare Worker (Hono router)
-        |
-        ├── GitHub Webhook Handler
-        ├── Slack Command Handler
-        └── Queue Producer
-                |
-                v
-        Cloudflare Queue
-                |
-                v
-        Queue Consumer
-                |
-                v
-        Cloudflare Container (Docker)
-          ├── Claude Code SDK
-          ├── Git clone + branch
-          └── Create PR
-```
+<p align="center">
+  <img src="docs/Gemini_Generated_Image_ff2xhhff2xhhff2x.png" alt="Clarity AI Architecture" width="700">
+</p>
 
 **Key components:**
 - **TypeScript Worker** (`src/index.ts`) -- Routes requests, handles webhooks, manages OAuth flows
